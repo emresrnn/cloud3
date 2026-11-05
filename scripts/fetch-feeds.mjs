@@ -84,20 +84,41 @@ function pickImage(item) {
 }
 
 // ---------- classification ----------
+// \b is ASCII-only in JS, so build Unicode-aware boundaries. English terms must
+// match whole words; Turkish stems (ending in "*") also match with suffixes
+// (e.g. "sızıntı*" matches "sızıntısı", "açığı*" matches "açığını").
+const L = '[\\p{L}\\p{N}]';
+function kw(...terms) {
+  const parts = terms.map((t) => (t.endsWith('*') ? `${t.slice(0, -1)}${L}*` : t));
+  return new RegExp(`(?<!${L})(?:${parts.join('|')})(?!${L})`, 'u');
+}
+// Lowercase safely for both languages ("İ" -> "i", "I" -> "i").
+const lower = (s) => s.replace(/İ/g, 'i').toLowerCase();
+
 const RULES = {
-  ai: /\b(ai|a\.i\.|artificial intelligence|yapay zek[aâ]|machine learning|makine öğrenme|deep learning|llm|llms|gpt|chatgpt|openai|anthropic|claude|gemini|llama|mistral|copilot|neural|transformer|diffusion|agentic|ai agent|deepmind|hugging ?face)\b/i,
-  security: /\b(security|güvenlik|siber|cyber|vulnerab\w*|güvenlik açığı|cve-\d{4}-\d+|zero[- ]day|exploit\w*|malware|ransomware|fidye|phishing|oltalama|breach|hack(ed|er|ers|ing)?|botnet|backdoor|trojan|spyware|ddos|apt\d*)\b/i,
+  security: kw(
+    'security', 'cyber\\w*', 'vulnerab\\w*', 'cve-\\d{4}-\\d+', 'zero[- ]day', 'exploit\\w*', 'malware', 'ransomware',
+    'phishing', 'breach\\w*', 'hack(?:ed|er|ers|ing|s)?', 'botnet', 'backdoor', 'trojan', 'spyware', 'ddos', 'infostealer',
+    'güvenlik*', 'siber*', 'fidye*', 'oltalama*', 'sızıntı*', 'sızdır*', 'kötü amaçlı*', 'zararlı yazılım*', 'saldırı*', 'dolandırıcı*'
+  ),
+  ai: kw(
+    'ai', 'a\\.i\\.', 'artificial intelligence', 'machine learning', 'deep learning', 'llms?', 'gpt-?\\w*', 'chatgpt', 'openai',
+    'anthropic', 'claude', 'gemini', 'llama', 'mistral', 'copilot', 'neural', 'transformers?', 'diffusion', 'agentic',
+    'deepmind', 'hugging ?face', 'grok', 'deepseek',
+    'yapay zek*', 'makine öğren*', 'derin öğren*', 'dil model*', 'sohbet bot*'
+  ),
 };
 const TAGS = [
-  ['release', /\b(release[sd]?|released|launch(es|ed)?|now available|general availability|ga\b|v?\d+\.\d+(\.\d+)?\b|sürüm|yayınlandı|piyasaya|duyurdu|tanıttı|introducing|announc\w+)/i],
-  ['vuln', /\b(cve-\d{4}-\d+|zero[- ]day|vulnerab\w*|güvenlik açığı|exploit\w*|patch(es|ed)?|yama)\b/i],
-  ['breach', /\b(breach\w*|leak\w*|sızıntı|sızdırıldı|ransomware|fidye)\b/i],
-  ['opensource', /\b(open[- ]source|açık kaynak)\b/i],
+  ['release', kw('releases?', 'released', 'launch(?:es|ed)?', 'now available', 'introducing', 'v\\d+(?:\\.\\d+)+', '\\d+\\.\\d+\\.\\d+',
+    'sürüm*', 'yayınlandı', 'piyasaya*', 'tanıttı', 'kullanıma sunul*')],
+  ['vuln', kw('cve-\\d{4}-\\d+', 'zero[- ]day', 'vulnerab\\w*', 'exploit\\w*', 'patch(?:es|ed)?', 'güvenlik açığ*', 'yama*')],
+  ['breach', kw('breach\\w*', 'leak(?:s|ed)?', 'ransomware', 'sızıntı*', 'sızdır*', 'fidye*')],
+  ['opensource', kw('open[- ]source', 'açık kaynak*')],
 ];
 
 function classify(source, title, summary) {
   if (!source.autoCategory && source.lang !== 'tr') return source.category;
-  const text = `${title} ${summary}`;
+  const text = lower(`${title} ${summary}`);
   if (RULES.security.test(text)) return 'security';
   if (RULES.ai.test(text)) return 'ai';
   return source.category;
@@ -105,7 +126,7 @@ function classify(source, title, summary) {
 function tagsFor(source, title, summary) {
   const tags = new Set();
   if (source.category === 'releases') tags.add('release');
-  for (const [tag, re] of TAGS) if (re.test(tag === 'release' ? title : `${title} ${summary}`)) tags.add(tag);
+  for (const [tag, re] of TAGS) if (re.test(lower(tag === 'release' ? title : `${title} ${summary}`))) tags.add(tag);
   return [...tags];
 }
 

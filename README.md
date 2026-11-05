@@ -38,6 +38,7 @@ The site will be at `https://<user>.github.io/<repo>/`.
 npm install
 npm run fetch   # pulls feeds into site/data/
 npm run dev     # serves site/ at http://localhost:5173
+npm test        # offline tests for the feed aggregator
 ```
 
 ## Adding or removing sources
