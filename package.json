@@ -1,0 +1,14 @@
+{
+  "name": "techpulse",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Auto-updating news hub for software, AI and cybersecurity",
+  "type": "module",
+  "scripts": {
+    "fetch": "node scripts/fetch-feeds.mjs",
+    "dev": "npx --yes serve site -l 5173"
+  },
+  "dependencies": {
+    "rss-parser": "^3.13.0"
+  }
+}
