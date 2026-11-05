@@ -1,1 +1,388 @@
-{"updatedAt":null,"total":0,"counts":{},"sourcesOk":0,"sourcesTotal":0,"sources":[]}
+{
+  "updatedAt": "2026-11-05T07:57:42.393Z",
+  "total": 491,
+  "counts": {
+    "software": 172,
+    "ai": 141,
+    "security": 128,
+    "releases": 50
+  },
+  "sourcesOk": 38,
+  "sourcesTotal": 42,
+  "sources": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "category": "ai",
+      "lang": "en",
+      "ok": true,
+      "count": 30,
+      "ms": 408
+    },
+    {
+      "id": "deepmind",
+      "name": "Google DeepMind",
+      "category": "ai",
+      "lang": "en",
+      "ok": true,
+      "count": 30,
+      "ms": 196
+    },
+    {
+      "id": "googleai",
+      "name": "Google AI Blog",
+      "category": "ai",
+      "lang": "en",
+      "ok": true,
+      "count": 20,
+      "ms": 1274
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face",
+      "category": "ai",
+      "lang": "en",
+      "ok": true,
+      "count": 30,
+      "ms": 435
+    },
+    {
+      "id": "mittr-ai",
+      "name": "MIT Technology Review",
+      "category": "ai",
+      "lang": "en",
+      "ok": true,
+      "count": 10,
+      "ms": 449
+    },
+    {
+      "id": "verge-ai",
+      "name": "The Verge AI",
+      "category": "ai",
+      "lang": "en",
+      "ok": true,
+      "count": 10,
+      "ms": 466
+    },
+    {
+      "id": "venturebeat-ai",
+      "name": "VentureBeat AI",
+      "category": "ai",
+      "lang": "en",
+      "ok": false,
+      "error": "HTTP 429"
+    },
+    {
+      "id": "techcrunch-ai",
+      "name": "TechCrunch AI",
+      "category": "ai",
+      "lang": "en",
+      "ok": true,
+      "count": 20,
+      "ms": 491
+    },
+    {
+      "id": "nvidia-ai",
+      "name": "NVIDIA Blog",
+      "category": "ai",
+      "lang": "en",
+      "ok": true,
+      "count": 18,
+      "ms": 587
+    },
+    {
+      "id": "github-blog",
+      "name": "GitHub Blog",
+      "category": "software",
+      "lang": "en",
+      "ok": true,
+      "count": 10,
+      "ms": 520
+    },
+    {
+      "id": "github-changelog",
+      "name": "GitHub Changelog",
+      "category": "software",
+      "lang": "en",
+      "ok": true,
+      "count": 10,
+      "ms": 506
+    },
+    {
+      "id": "hackernews",
+      "name": "Hacker News",
+      "category": "software",
+      "lang": "en",
+      "ok": true,
+      "count": 20,
+      "ms": 2804
+    },
+    {
+      "id": "infoq",
+      "name": "InfoQ",
+      "category": "software",
+      "lang": "en",
+      "ok": true,
+      "count": 15,
+      "ms": 789
+    },
+    {
+      "id": "devto",
+      "name": "DEV Community",
+      "category": "software",
+      "lang": "en",
+      "ok": false,
+      "error": "HTTP 404"
+    },
+    {
+      "id": "stackoverflow",
+      "name": "Stack Overflow Blog",
+      "category": "software",
+      "lang": "en",
+      "ok": true,
+      "count": 30,
+      "ms": 649
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js Blog",
+      "category": "software",
+      "lang": "en",
+      "ok": true,
+      "count": 30,
+      "ms": 688
+    },
+    {
+      "id": "python",
+      "name": "Python Insider",
+      "category": "software",
+      "lang": "en",
+      "ok": true,
+      "count": 25,
+      "ms": 829
+    },
+    {
+      "id": "rust",
+      "name": "Rust Blog",
+      "category": "software",
+      "lang": "en",
+      "ok": true,
+      "count": 10,
+      "ms": 792
+    },
+    {
+      "id": "verge-tech",
+      "name": "The Verge Tech",
+      "category": "software",
+      "lang": "en",
+      "ok": true,
+      "count": 10,
+      "ms": 747
+    },
+    {
+      "id": "thehackernews",
+      "name": "The Hacker News",
+      "category": "security",
+      "lang": "en",
+      "ok": true,
+      "count": 30,
+      "ms": 1044
+    },
+    {
+      "id": "bleepingcomputer",
+      "name": "BleepingComputer",
+      "category": "security",
+      "lang": "en",
+      "ok": true,
+      "count": 15,
+      "ms": 812
+    },
+    {
+      "id": "krebs",
+      "name": "Krebs on Security",
+      "category": "security",
+      "lang": "en",
+      "ok": true,
+      "count": 10,
+      "ms": 884
+    },
+    {
+      "id": "securityweek",
+      "name": "SecurityWeek",
+      "category": "security",
+      "lang": "en",
+      "ok": true,
+      "count": 10,
+      "ms": 892
+    },
+    {
+      "id": "darkreading",
+      "name": "Dark Reading",
+      "category": "security",
+      "lang": "en",
+      "ok": true,
+      "count": 30,
+      "ms": 1177
+    },
+    {
+      "id": "cisa",
+      "name": "CISA Advisories",
+      "category": "security",
+      "lang": "en",
+      "ok": false,
+      "error": "HTTP 403"
+    },
+    {
+      "id": "schneier",
+      "name": "Schneier on Security",
+      "category": "security",
+      "lang": "en",
+      "ok": true,
+      "count": 10,
+      "ms": 1027
+    },
+    {
+      "id": "welivesecurity",
+      "name": "WeLiveSecurity",
+      "category": "security",
+      "lang": "en",
+      "ok": true,
+      "count": 30,
+      "ms": 1115
+    },
+    {
+      "id": "rel-vscode",
+      "name": "VS Code",
+      "category": "releases",
+      "lang": "en",
+      "ok": true,
+      "count": 5,
+      "ms": 1367
+    },
+    {
+      "id": "rel-node",
+      "name": "Node.js",
+      "category": "releases",
+      "lang": "en",
+      "ok": true,
+      "count": 5,
+      "ms": 2754
+    },
+    {
+      "id": "rel-python",
+      "name": "CPython",
+      "category": "releases",
+      "lang": "en",
+      "ok": true,
+      "count": 5,
+      "ms": 1361
+    },
+    {
+      "id": "rel-kubernetes",
+      "name": "Kubernetes",
+      "category": "releases",
+      "lang": "en",
+      "ok": true,
+      "count": 5,
+      "ms": 1474
+    },
+    {
+      "id": "rel-react",
+      "name": "React",
+      "category": "releases",
+      "lang": "en",
+      "ok": true,
+      "count": 5,
+      "ms": 1820
+    },
+    {
+      "id": "rel-pytorch",
+      "name": "PyTorch",
+      "category": "releases",
+      "lang": "en",
+      "ok": true,
+      "count": 5,
+      "ms": 2765
+    },
+    {
+      "id": "rel-ollama",
+      "name": "Ollama",
+      "category": "releases",
+      "lang": "en",
+      "ok": true,
+      "count": 5,
+      "ms": 1443
+    },
+    {
+      "id": "rel-langchain",
+      "name": "LangChain",
+      "category": "releases",
+      "lang": "en",
+      "ok": true,
+      "count": 5,
+      "ms": 1636
+    },
+    {
+      "id": "rel-transformers",
+      "name": "Transformers",
+      "category": "releases",
+      "lang": "en",
+      "ok": true,
+      "count": 5,
+      "ms": 2683
+    },
+    {
+      "id": "rel-docker",
+      "name": "Docker (Moby)",
+      "category": "releases",
+      "lang": "en",
+      "ok": true,
+      "count": 5,
+      "ms": 1567
+    },
+    {
+      "id": "rel-nextjs",
+      "name": "Next.js",
+      "category": "releases",
+      "lang": "en",
+      "ok": true,
+      "count": 1,
+      "ms": 1755
+    },
+    {
+      "id": "webtekno",
+      "name": "Webtekno",
+      "category": "software",
+      "lang": "tr",
+      "ok": true,
+      "count": 30,
+      "ms": 2278
+    },
+    {
+      "id": "shiftdelete",
+      "name": "ShiftDelete.Net",
+      "category": "software",
+      "lang": "tr",
+      "ok": true,
+      "count": 30,
+      "ms": 1659
+    },
+    {
+      "id": "donanimhaber",
+      "name": "DonanımHaber",
+      "category": "software",
+      "lang": "tr",
+      "ok": true,
+      "count": 30,
+      "ms": 2036
+    },
+    {
+      "id": "siberbulten",
+      "name": "Siber Bülten",
+      "category": "security",
+      "lang": "tr",
+      "ok": false,
+      "error": "Attribute without value\nLine: 2\nColumn: 228\nChar: >"
+    }
+  ]
+}
